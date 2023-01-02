@@ -6,7 +6,17 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        show: {
+          '0%': { right: '-100%' },
+          '100%': { right: '0' },
+        },
+      },
+      animation: {
+        show: 'show 0.5s ease-in-out',
+      },
+    },
   },
   plugins: [],
 };

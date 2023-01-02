@@ -1,11 +1,5 @@
 import Head from 'next/head';
-import { Poppins } from '@next/font/google';
 import { GetServerSideProps } from 'next';
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-});
 
 type Props = {
   nextRaceData: NextRaceType;
@@ -13,7 +7,6 @@ type Props = {
 };
 
 const Home = ({ nextRaceData, prevRaceData }: Props) => {
-  console.log(nextRaceData, prevRaceData);
   return (
     <>
       <Head>
