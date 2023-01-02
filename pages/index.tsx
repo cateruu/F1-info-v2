@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
+import NextRace from '../components/NextRace/NextRace';
 
 type Props = {
   nextRaceData: NextRaceType;
@@ -15,7 +16,9 @@ const Home = ({ nextRaceData, prevRaceData }: Props) => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/bolid.png' />
       </Head>
-      <main>halo</main>
+      <main>
+        <NextRace nextRaceData={nextRaceData} />
+      </main>
     </>
   );
 };
