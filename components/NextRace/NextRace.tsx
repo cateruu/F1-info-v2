@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { getTimeToRace } from '../../utils/getTimeToRace';
 import Timer from './Timer/Timer';
 
 type Props = {
@@ -7,7 +6,6 @@ type Props = {
 };
 
 const NextRace = ({ nextRaceData }: Props) => {
-  console.log(nextRaceData);
   return (
     <section>
       <div className='flex items-center'>
