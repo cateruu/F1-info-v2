@@ -25,7 +25,9 @@ const Timer = ({ date, time }: Props) => {
       } w-20 relative`}
     >
       {timeToRace}
-      <div className='absolute w-5 h-5 rounded-full bg-red-600 animate-ping top-0.5 origin-center left-1'></div>
+      {timeToRace === 'Live' && (
+        <div className='absolute w-5 h-5 rounded-full bg-red-600 animate-ping top-0.5 origin-center left-1'></div>
+      )}
     </time>
   );
 };
