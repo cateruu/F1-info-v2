@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { getCountryName } from '../../utils/getCountryName';
 import Sessions from './Sessions/Sessions';
 import Timer from './Timer/Timer';
 
@@ -47,10 +48,13 @@ const NextRace = ({ nextRaceData }: Props) => {
           <span className='mr-2'>{nextRaceData.name}</span>
           <span className='rounded-sm overflow-hidden'>
             <Image
-              src={`https://countryflagsapi.com/png/${nextRaceData.country}`}
+              src={`https://countryflagsapi.com/png/${getCountryName(
+                nextRaceData.country
+              )}`}
               alt={nextRaceData.country}
               width={20}
               height={15}
+              className='h-4'
             />
           </span>
         </h3>
@@ -81,7 +85,7 @@ const NextRace = ({ nextRaceData }: Props) => {
           href={trackImg.image}
           target='_blank'
           rel='noreferrer'
-          className='relative flex-grow hidden lg:block'
+          className='relative flex-grow hidden lg:block ml-2'
         >
           <Image
             src={trackImg.image}
@@ -98,7 +102,7 @@ const NextRace = ({ nextRaceData }: Props) => {
         rel='noreferrer'
         className='w-full bg-red-600 text-white rounded-md grid place-items-center font-medium p-3 mt-4 lg:hidden'
       >
-        Check Track Image
+        View Track Image
       </a>
     </section>
   );

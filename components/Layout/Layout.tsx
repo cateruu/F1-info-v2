@@ -1,6 +1,7 @@
 import Header from './Header/Header';
 
 import { Poppins } from '@next/font/google';
+import Footer from './Footer/Footer';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -18,6 +19,7 @@ const Layout = ({ children }: Props) => {
     >
       <Header />
       {children}
+      <Footer />
     </div>
   );
 };

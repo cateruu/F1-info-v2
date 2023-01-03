@@ -20,7 +20,9 @@ const Timer = ({ date, time }: Props) => {
 
   return (
     <time
-      className={`${timeToRace === 'Live' ? 'text-red-600' : 'text-gray-500'}`}
+      className={`${
+        timeToRace === 'Live' ? 'text-red-600' : 'text-gray-500'
+      } w-20`}
     >
       {timeToRace}
     </time>

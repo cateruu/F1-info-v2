@@ -7,8 +7,8 @@ type Props = {
 const MobileMenu = ({ handleMobileMenuOpen }: Props) => {
   return (
     <>
-      <div className='w-screen h-screen fixed inset-0 bg-gray-900 opacity-80'></div>
-      <nav className='bg-gray-900 h-screen w-56 fixed top-0 right-0 animate-show p-4 pt-8 flex flex-col text-red-600 border-l border-l-gray-800'>
+      <div className='w-screen h-screen fixed inset-0 bg-gray-900 opacity-80 z-40'></div>
+      <nav className='bg-gray-900 h-screen w-56 fixed top-0 right-0 animate-show p-4 pt-8 flex flex-col text-red-600 border-l border-l-gray-800 z-50'>
         <span
           onClick={handleMobileMenuOpen}
           className='bg-white w-5 h-0.5 rounded-full rotate-45 relative mb-8 before:content-[""] before:absolute before:rotate-90 before:bg-white before:w-5 before:h-0.5 before:rounded-full'

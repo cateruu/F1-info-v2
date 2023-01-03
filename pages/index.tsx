@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import NextRace from '../components/NextRace/NextRace';
+import PreviousRace from '../components/PreviousRace/PreviousRace';
 
 type Props = {
   nextRaceData: NextRaceType;
@@ -18,6 +19,7 @@ const Home = ({ nextRaceData, prevRaceData }: Props) => {
       </Head>
       <main>
         <NextRace nextRaceData={nextRaceData} />
+        <PreviousRace previousRaceData={prevRaceData} />
       </main>
     </>
   );
