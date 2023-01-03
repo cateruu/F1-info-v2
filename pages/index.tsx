@@ -27,6 +27,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const nextRaceReq = await fetch(
     'https://ergast.com/api/f1/current/next.json'
   );
+  // const nextRaceReq = await fetch('https://ergast.com/api/f1/2022/4.json');
   let nextRaceData;
   if (nextRaceReq.ok) {
     const nextRaceAPI: NextRaceAPI = await nextRaceReq.json();
@@ -45,8 +46,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
           date: nextRaceAPI.MRData.RaceTable.Races[0].SecondPractice.date,
         },
         fp3: {
-          time: nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice.time,
-          date: nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice.date,
+          time: nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice?.time
+            ? nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice?.time
+            : null,
+          date: nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice?.date
+            ? nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice?.date
+            : null,
         },
         qualifying: {
           time: nextRaceAPI.MRData.RaceTable.Races[0].Qualifying.time,
@@ -55,6 +60,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
         race: {
           time: nextRaceAPI.MRData.RaceTable.Races[0].time,
           date: nextRaceAPI.MRData.RaceTable.Races[0].date,
+        },
+        sprint: {
+          time: nextRaceAPI.MRData.RaceTable.Races[0].Sprint?.time
+            ? nextRaceAPI.MRData.RaceTable.Races[0].Sprint?.time
+            : null,
+          date: nextRaceAPI.MRData.RaceTable.Races[0].Sprint?.date
+            ? nextRaceAPI.MRData.RaceTable.Races[0].Sprint?.date
+            : null,
         },
       },
     };

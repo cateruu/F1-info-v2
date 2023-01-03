@@ -25,6 +25,10 @@ interface NextRaceAPI {
           date: string;
           time: string;
         };
+        Sprint: {
+          date: string;
+          time: string;
+        };
         date: string;
         raceName: string;
         round: string;
@@ -60,6 +64,10 @@ interface NextRaceType {
       date: string;
     };
     race: {
+      time: string;
+      date: string;
+    };
+    sprint: {
       time: string;
       date: string;
     };

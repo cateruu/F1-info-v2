@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Sessions from './Sessions/Sessions';
 import Timer from './Timer/Timer';
 
 type Props = {
@@ -28,7 +29,8 @@ const NextRace = ({ nextRaceData }: Props) => {
           />
         </span>
       </h3>
-      <h4 className='text-gray-500'>{nextRaceData.track}</h4>
+      <h4 className='text-gray-500 mb-6'>{nextRaceData.track}</h4>
+      <Sessions sessions={nextRaceData.sessions} />
     </section>
   );
 };
