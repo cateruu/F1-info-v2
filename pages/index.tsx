@@ -27,7 +27,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const nextRaceReq = await fetch(
     'https://ergast.com/api/f1/current/next.json'
   );
-  // const nextRaceReq = await fetch('https://ergast.com/api/f1/2022/4.json');
   let nextRaceData;
   if (nextRaceReq.ok) {
     const nextRaceAPI: NextRaceAPI = await nextRaceReq.json();

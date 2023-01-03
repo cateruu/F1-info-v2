@@ -17,7 +17,7 @@ const Header = () => {
       <Link href='/'>
         <Image src={LogoPNG} alt='logo' className='w-24' />
       </Link>
-      <ul className='text-red-600 hidden space-x-10 text-lg font-medium lg:flex'>
+      <ul className='text-red-600 hidden space-x-10 text-base font-semibold lg:flex'>
         <Link href='/results'>
           <li>Results</li>
         </Link>

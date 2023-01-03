@@ -14,7 +14,7 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <div
-      className={`${poppins.className} flex flex-col mx-auto w-11/12 lg:w-3/4`}
+      className={`${poppins.className} flex flex-col mx-auto w-11/12 lg:w-8/12`}
     >
       <Header />
       {children}
