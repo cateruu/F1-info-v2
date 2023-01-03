@@ -79,6 +79,14 @@ const Position = ({ podium }: Props) => {
   return (
     <div className={`${margin} flex flex-col items-center`}>
       <div className='relative w-full h-40'>
+        {loading && (
+          <Image
+            src='/unknown.png'
+            alt='Loading driver image...'
+            fill
+            className='object-contain'
+          />
+        )}
         {constructorImg && (
           <Image
             src={constructorImg.image}
