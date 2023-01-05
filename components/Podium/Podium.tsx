@@ -2,22 +2,7 @@ import Result from '../PreviousRace/Results/Result';
 import Position from './Position';
 
 type Props = {
-  podium: {
-    number: string;
-    position: string;
-    points: string;
-    Driver: {
-      givenName: string;
-      familyName: string;
-      driverId: string;
-    };
-    Constructor: {
-      constructorId: string;
-    };
-    FastestLap: {
-      rank: string;
-    };
-  }[];
+  podium: DriverType[];
 };
 
 const Podium = ({ podium }: Props) => {

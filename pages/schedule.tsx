@@ -21,7 +21,7 @@ const SchedulePage = ({ scheduleData, nextRaceData }: Props) => {
       </Head>
       <main>
         <h2 className='text-white text-4xl'>Schedule</h2>
-        <section className='flex flex-wrap gap-2 justify-center mt-6'>
+        <section className='flex flex-wrap gap-2 justify-center mt-6 mb-12'>
           {scheduleData.map((race) => (
             <a
               key={race.round}
