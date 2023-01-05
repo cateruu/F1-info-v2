@@ -1,11 +1,11 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Result from '../components/PreviousRace/Results/Result';
 
 type Props = {
-  driversData: { result: DriverType[] };
-  constructorsData: { result: ConstructorType[] };
+  driversData: DriverType[];
+  constructorsData: ConstructorType[];
 };
 
 const StandingsPage = ({ driversData, constructorsData }: Props) => {
@@ -45,14 +45,14 @@ const StandingsPage = ({ driversData, constructorsData }: Props) => {
         </div>
         <section className='flex flex-col gap-[1px] mt-4'>
           {selectedCategory === 'drivers'
-            ? driversData.result.map((driver) => (
+            ? driversData.map((driver) => (
                 <Result
                   key={driver.number}
                   result={driver}
                   position={driver.position}
                 ></Result>
               ))
-            : constructorsData.result.map((construtor) => (
+            : constructorsData.map((construtor) => (
                 <Result
                   key={construtor.Constructor.constructorId}
                   result={construtor}
@@ -73,10 +73,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   let driversData;
   if (driversReq.ok) {
     const driversAPI: DriversStandingsAPI = await driversReq.json();
-    driversData = {
-      result:
-        driversAPI.MRData.StandingsTable.StandingsLists[0].DriverStandings,
-    };
+    driversData =
+      driversAPI.MRData.StandingsTable.StandingsLists[0].DriverStandings;
   }
 
   const constructorsReq = await fetch(
@@ -86,11 +84,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
   if (constructorsReq.ok) {
     const constructorsAPI: ConstructorsStandingsAPI =
       await constructorsReq.json();
-    constructorsData = {
-      result:
-        constructorsAPI.MRData.StandingsTable.StandingsLists[0]
-          .ConstructorStandings,
-    };
+    constructorsData =
+      constructorsAPI.MRData.StandingsTable.StandingsLists[0]
+        .ConstructorStandings;
   }
 
   return {

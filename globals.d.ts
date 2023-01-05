@@ -205,6 +205,7 @@ interface ScheduleData {
     };
     circuitId: string;
     circuitName: string;
+    url: string;
   };
   FirstPractice: {
     date: string;
