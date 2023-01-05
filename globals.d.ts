@@ -122,6 +122,7 @@ interface ResultType {
   };
   Constructor: {
     constructorId: string;
+    name: string;
   };
   FastestLap: {
     rank: string;
@@ -148,11 +149,12 @@ interface DriversStandingsAPI {
   };
 }
 
-interface DriverType {
+interface DriverType extends ResultType {
   position: string;
   points: string;
   Constructors: {
     constructorId: string;
+    name: string;
   }[];
   Driver: {
     driverId: string;
@@ -178,7 +180,7 @@ interface ConstructorsStandingsAPI {
   };
 }
 
-interface ConstructorType {
+interface ConstructorType extends ResultType {
   position: string;
   points: string;
   Constructor: {

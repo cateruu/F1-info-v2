@@ -2,22 +2,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 type Props = {
-  result: {
-    number: string;
-    position: string;
-    points: string;
-    Driver: {
-      givenName: string;
-      familyName: string;
-      driverId: string;
-    };
-    Constructor: {
-      constructorId: string;
-    };
-    FastestLap: {
-      rank: string;
-    };
-  };
+  result: DriverType | ConstructorType;
   position?: string;
 };
 
@@ -34,8 +19,17 @@ const Result = ({ result, position }: Props) => {
       const req = await fetch('/api/constructors');
       const res = await req.json();
 
-      if (result.Constructor.constructorId in res) {
-        setConstructorImg(res[result.Constructor.constructorId]);
+      if (result.Constructor) {
+        if (result.Constructor.constructorId in res) {
+          setConstructorImg(res[result.Constructor.constructorId]);
+        }
+        return;
+      }
+
+      if ((result as DriverType).Constructors[0].constructorId in res) {
+        setConstructorImg(
+          res[(result as DriverType).Constructors[0].constructorId]
+        );
       }
     };
 
@@ -68,7 +62,9 @@ const Result = ({ result, position }: Props) => {
           {result.position}
         </p>
         <p className='ml-3 text-white'>
-          {result.Driver.givenName} {result.Driver.familyName}
+          {result.Driver
+            ? `${result.Driver.givenName} ${result.Driver.familyName}`
+            : `${result.Constructor.name}`}
         </p>
       </div>
       <div className='flex'>
@@ -84,7 +80,9 @@ const Result = ({ result, position }: Props) => {
         )}
         <p
           className={`${
-            result.FastestLap.rank === '1' ? 'text-purple-700' : 'text-white'
+            result.FastestLap && result.FastestLap.rank === '1'
+              ? 'text-purple-700'
+              : 'text-white'
           } border-l border-l-gray-700 w-10 text-center`}
         >
           {result.points}

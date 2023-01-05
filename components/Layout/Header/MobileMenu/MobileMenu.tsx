@@ -21,7 +21,7 @@ const MobileMenu = ({ handleMobileMenuOpen }: Props) => {
             <li>Results</li>
           </Link>
           <Link href='/standings' onClick={handleMobileMenuOpen}>
-            <li>Standing</li>
+            <li>Standings</li>
           </Link>
           <Link href='/schedule' onClick={handleMobileMenuOpen}>
             <li>Schedule</li>
