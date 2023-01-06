@@ -34,8 +34,8 @@ const ResultsPage = ({ resultsData }: Props) => {
             />
           </span>
         </div>
-        <Podium podium={resultsData.results.slice(0, 3)} />
-        <Results results={resultsData.results.slice(3)} />
+        <Podium podium={resultsData.results.slice(0, 3) as ConstructorType[]} />
+        <Results results={resultsData.results.slice(3) as ConstructorType[]} />
       </main>
     </>
   );

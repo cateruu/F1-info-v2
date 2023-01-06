@@ -2,7 +2,7 @@ import Result from '../PreviousRace/Results/Result';
 import Position from './Position';
 
 type Props = {
-  podium: DriverType[];
+  podium: DriverType[] | ConstructorType[];
 };
 
 const Podium = ({ podium }: Props) => {

@@ -1,22 +1,7 @@
 import Result from './Result';
 
 type Props = {
-  results: {
-    number: string;
-    position: string;
-    points: string;
-    Driver: {
-      givenName: string;
-      familyName: string;
-      driverId: string;
-    };
-    Constructor: {
-      constructorId: string;
-    };
-    FastestLap: {
-      rank: string;
-    };
-  }[];
+  results: DriverType[] | ConstructorType[];
 };
 
 const Results = ({ results }: Props) => {

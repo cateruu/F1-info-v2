@@ -27,7 +27,7 @@ const PreviousRace = ({ previousRaceData }: Props) => {
           />
         </span>
       </h3>
-      <Results results={previousRaceData.results} />
+      <Results results={previousRaceData.results as ConstructorType[]} />
       <Link
         href='/results'
         className='w-full py-3 text-center bg-red-600 block rounded-md text-white mt-2 font-medium'
